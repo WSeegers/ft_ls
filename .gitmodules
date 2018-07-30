@@ -1,0 +1,3 @@
+[submodule "libwtcc"]
+	path = libwtcc
+	url = https://github.com/wseegers/libwtcc

@@ -1,0 +1,8 @@
+{
+	"files.associations": {
+		"ft_ls.h": "c",
+		"types.h": "c",
+		"f_print.h": "c",
+		"f_math.h": "c"
+	}
+}

@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ls.c                                            :+:      :+:    :+:   */
+/*   to_str.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wseegers <wseegers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/30 19:54:15 by wseegers          #+#    #+#             */
-/*   Updated: 2018/08/03 06:16:01 by wseegers         ###   ########.fr       */
+/*   Created: 2018/08/03 03:50:53 by wseegers          #+#    #+#             */
+/*   Updated: 2018/08/03 04:43:00 by wseegers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-int		main(int ac, char *av[])
+char	*de_to_str(void *dirent)
 {
-	t_flags 	flag;
+	t_dirent	de;
 
-	flag = 0;
-	exec_ls(flag, "./libwtcc/f_string", print_simple_v2);
-	f_exit(0);
+	de = (t_dirent)dirent;
+	return (de->d_name);
+}
+
+char	*void_to_str(void *str)
+{
+	return ((char*)str);
+}
+
+const char *get_path(t_list *plist)
+{
+	return (s_list_tostr(plist, '/', void_to_str));
 }

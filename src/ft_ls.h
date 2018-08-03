@@ -6,7 +6,7 @@
 /*   By: wseegers <wseegers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/30 19:54:47 by wseegers          #+#    #+#             */
-/*   Updated: 2018/07/30 23:39:10 by wseegers         ###   ########.fr       */
+/*   Updated: 2018/08/03 06:16:42 by wseegers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <dirent.h>
 # include <sys/types.h>
+# include <sys/stat.h>
 # include <stdbool.h>
 # include <stdlib.h>
 # include <limits.h>
@@ -40,5 +41,22 @@ typedef int		t_flags;
 # define FLAG_ALL				(SHIFT(2))
 # define FLAG_REV				(SHIFT(3))
 # define FLAG_TIME				(SHIFT(4))
+
+void		ls_rec(int flag, t_list *flist, t_list *plist, void (*print)(t_list*));
+void		exec_ls(int flag, const char *path, void (*print)(t_list*));
+void		get_file_list(t_list *flist, DIR *dir, int flag);
+
+int			tsort(void *p1, void *p2);
+int			rtsort(void *p1, void *p2);
+int			sort(void *p1, void *p2);
+int			rsort(void *p1, void *p2);
+
+char		*de_to_str(void *dirent);
+char		*void_to_str(void *str);
+const char	*get_path(t_list *plist);
+
+void		print_simple(t_list *flist);
+void		print_simple_v2(t_list *flist);
+
 
 #endif

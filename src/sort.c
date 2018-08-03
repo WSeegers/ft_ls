@@ -1,22 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ls.c                                            :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wseegers <wseegers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/30 19:54:15 by wseegers          #+#    #+#             */
-/*   Updated: 2018/08/03 06:16:01 by wseegers         ###   ########.fr       */
+/*   Created: 2018/08/03 06:14:00 by wseegers          #+#    #+#             */
+/*   Updated: 2018/08/03 06:14:09 by wseegers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-int		main(int ac, char *av[])
+int		tsort(void *p1, void *p2)
 {
-	t_flags 	flag;
+	return (1);
+}
 
-	flag = 0;
-	exec_ls(flag, "./libwtcc/f_string", print_simple_v2);
-	f_exit(0);
+int		rtsort(void *p1, void *p2)
+{
+	return (-1);
+}
+
+int		sort(void *p1, void *p2)
+{
+	t_dirent	de1;
+	t_dirent	de2;
+
+	de1 = (t_dirent)p1;
+	de2 = (t_dirent)p2;
+	return (-f_strcmp(de1->d_name, de2->d_name));
+}
+
+int		rsort(void *p1, void *p2)
+{
+	t_dirent	de1;
+	t_dirent	de2;
+
+	de1 = (t_dirent)p1;
+	de2 = (t_dirent)p2;
+	return (f_strcmp(de1->d_name, de2->d_name));
 }

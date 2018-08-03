@@ -1,0 +1,172 @@
+1c1
+< total 139
+---
+> total 138
+3,6c3,6
+< -rw-r--r--   1 wseegers  student      9  3 Aug 12:09 author
+< drwxr-xr-x   2 wseegers  student     16  3 Aug 12:09 bin
+< -rwxr-xr-x   1 wseegers  student  34024  3 Aug 12:09 ft_ls
+< -rw-r--r--   1 wseegers  student      0  3 Aug 12:09 ft_op
+---
+> -rw-r--r--   1 wseegers  student      9  3 Aug 12:06 author
+> drwxr-xr-x   2 wseegers  student     16  3 Aug 12:06 bin
+> -rwxr-xr-x   1 wseegers  student  34024  3 Aug 12:06 ft_ls
+> -rw-r--r--   1 wseegers  student  32083  3 Aug 12:06 ft_op
+8c8
+< -rw-r--r--   1 wseegers  student  32296  3 Aug 12:06 ls_op
+---
+> -rw-r--r--   1 wseegers  student      0  3 Aug 12:06 ls_op
+11c11
+< ./bin
+---
+> ./bin:
+21,22c21,22
+< -rw-r--r--  1 wseegers  student   286  3 Aug 12:09 print.d
+< -rw-r--r--  1 wseegers  student  4592  3 Aug 12:09 print.o
+---
+> -rw-r--r--  1 wseegers  student   286  3 Aug 12:04 print.d
+> -rw-r--r--  1 wseegers  student  4584  3 Aug 12:04 print.o
+28c28
+< ./libwtcc
+---
+> ./libwtcc:
+46c46
+< ./libwtcc/bin
+---
+> ./libwtcc/bin:
+60c60
+< ./libwtcc/bin/f_cntl
+---
+> ./libwtcc/bin/f_cntl:
+65c65
+< ./libwtcc/bin/f_io
+---
+> ./libwtcc/bin/f_io:
+86c86
+< ./libwtcc/bin/f_math
+---
+> ./libwtcc/bin/f_math:
+95c95
+< ./libwtcc/bin/f_memory
+---
+> ./libwtcc/bin/f_memory:
+124c124
+< ./libwtcc/bin/f_print
+---
+> ./libwtcc/bin/f_print:
+163c163
+< ./libwtcc/bin/f_string
+---
+> ./libwtcc/bin/f_string:
+222c222
+< ./libwtcc/bin/s_dstring
+---
+> ./libwtcc/bin/s_dstring:
+255c255
+< ./libwtcc/bin/s_graph
+---
+> ./libwtcc/bin/s_graph:
+286c286
+< ./libwtcc/bin/s_grid
+---
+> ./libwtcc/bin/s_grid:
+299c299
+< ./libwtcc/bin/s_list
+---
+> ./libwtcc/bin/s_list:
+332c332
+< ./libwtcc/bin/s_vector
+---
+> ./libwtcc/bin/s_vector:
+351c351
+< ./libwtcc/f_cntl
+---
+> ./libwtcc/f_cntl:
+356c356
+< ./libwtcc/f_cntl/include
+---
+> ./libwtcc/f_cntl/include:
+360c360
+< ./libwtcc/f_io
+---
+> ./libwtcc/f_io:
+372c372
+< ./libwtcc/f_math
+---
+> ./libwtcc/f_math:
+378c378
+< ./libwtcc/f_memory
+---
+> ./libwtcc/f_memory:
+394c394
+< ./libwtcc/f_print
+---
+> ./libwtcc/f_print:
+417c417
+< ./libwtcc/f_print/include
+---
+> ./libwtcc/f_print/include:
+423c423
+< ./libwtcc/f_string
+---
+> ./libwtcc/f_string:
+474,476c474,476
+< ./libwtcc/include
+< total 46
+< -rw-r--r--  1 wseegers  student   992 30 Jul 19:47 f_cntl.h
+---
+> ./libwtcc/include:
+> total 37
+> lrwxrwxrwx  1 wseegers  student    26 30 Jul 19:47 f_cntl.h -> ../f_cntl/include/f_cntl.h
+484,485c484,485
+< -rw-r--r--  1 wseegers  student  1357 30 Jul 19:47 s_graph.h
+< -rw-r--r--  1 wseegers  student  1370 30 Jul 19:47 s_grid.h
+---
+> lrwxrwxrwx  1 wseegers  student    28 30 Jul 19:47 s_graph.h -> ../s_graph/include/s_graph.h
+> lrwxrwxrwx  1 wseegers  student    26 30 Jul 19:47 s_grid.h -> ../s_grid/include/s_grid.h
+488,489c488,489
+< -rw-r--r--  1 wseegers  student  1484 30 Jul 19:47 s_vector.h
+< -rw-r--r--  1 wseegers  student  1528 30 Jul 19:47 s_vertex.h
+---
+> lrwxrwxrwx  1 wseegers  student    30 30 Jul 19:47 s_vector.h -> ../s_vector/include/s_vector.h
+> lrwxrwxrwx  1 wseegers  student    29 30 Jul 19:47 s_vertex.h -> ../s_graph/include/s_vertex.h
+491c491
+< ./libwtcc/s_dstring
+---
+> ./libwtcc/s_dstring:
+509c509
+< ./libwtcc/s_graph
+---
+> ./libwtcc/s_graph:
+527c527
+< ./libwtcc/s_graph/include
+---
+> ./libwtcc/s_graph/include:
+532c532
+< ./libwtcc/s_grid
+---
+> ./libwtcc/s_grid:
+541c541
+< ./libwtcc/s_grid/include
+---
+> ./libwtcc/s_grid/include:
+545c545
+< ./libwtcc/s_list
+---
+> ./libwtcc/s_list:
+563c563
+< ./libwtcc/s_vector
+---
+> ./libwtcc/s_vector:
+575c575
+< ./libwtcc/s_vector/include
+---
+> ./libwtcc/s_vector/include:
+579c579
+< ./src
+---
+> ./src:
+586c586
+< -rw-r--r--  1 wseegers  student  3697  3 Aug 12:08 print.c
+---
+> -rw-r--r--  1 wseegers  student  3695  3 Aug 11:16 print.c

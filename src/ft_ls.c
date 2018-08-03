@@ -6,17 +6,17 @@
 /*   By: wseegers <wseegers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/30 19:54:15 by wseegers          #+#    #+#             */
-/*   Updated: 2018/08/03 06:16:01 by wseegers         ###   ########.fr       */
+/*   Updated: 2018/08/03 11:30:30 by wseegers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-int		main(int ac, char *av[])
+int			main(int ac, char *av[])
 {
-	t_flags 	flag;
+	t_flags		flag;
 
-	flag = 0;
-	exec_ls(flag, "./libwtcc/f_string", print_simple_v2);
+	flag = 0 | FLAG_REC;
+	exec_ls(flag, ".", print_long);
 	f_exit(0);
 }

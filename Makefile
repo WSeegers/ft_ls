@@ -6,7 +6,7 @@
 #    By: wseegers <wseegers@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/30 19:53:02 by wseegers          #+#    #+#              #
-#    Updated: 2018/08/02 11:30:01 by wseegers         ###   ########.fr        #
+#    Updated: 2018/08/03 09:32:29 by wseegers         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,5 +47,8 @@ fclean : clean
 	make fclean -C libwtcc -j4
 
 re : fclean all
+
+run : all
+	./$(NAME)
 
 .PHONEY : usage all make_all  clean  fclean  re

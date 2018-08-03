@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   to_str.c                                           :+:      :+:    :+:   */
+/*   g_months.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wseegers <wseegers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/03 03:50:53 by wseegers          #+#    #+#             */
-/*   Updated: 2018/08/03 06:57:35 by wseegers         ###   ########.fr       */
+/*   Created: 2018/08/03 11:29:45 by wseegers          #+#    #+#             */
+/*   Updated: 2018/08/03 11:29:50 by wseegers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_ls.h"
-
-char	*void_to_str(void *str)
+const char	*g_months[12] =
 {
-	return ((char*)str);
-}
-
-const char *get_path(t_list *plist)
-{
-	return (s_list_tostr(plist, '/', void_to_str));
-}
+	"Jan", "Feb", "Mar", "Apr", "May",
+	"Jun", "Jul", "Aug", "Sep", "Oct",
+	"Nov", "Dec"
+};

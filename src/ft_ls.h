@@ -6,7 +6,7 @@
 /*   By: wseegers <wseegers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/30 19:54:47 by wseegers          #+#    #+#             */
-/*   Updated: 2018/08/03 12:04:11 by wseegers         ###   ########.fr       */
+/*   Updated: 2018/08/06 10:18:03 by wseegers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,9 @@ const char				*g_months[12];
 typedef int				t_col_width[2];
 
 void					ls_rec(int flag, t_list *flist, t_list *plist,
-							void (*print)(t_list*));
+							void (*print)(t_list*, t_list*));
 void					exec_ls(int flag, const char *path,
-							void (*print)(t_list*));
+							void (*print)(t_list*, t_list*));
 void					get_file_list(t_list *flist, t_list *plist, int flag);
 
 int						tsort(void *p1, void *p2);
@@ -70,8 +70,10 @@ int						rsort(void *p1, void *p2);
 char					*void_to_str(void *str);
 const char				*get_path(t_list *plist);
 
-void					print_simple(t_list *flist);
-void					print_simple_v2(t_list *flist);
-void					print_long(t_list *flist);
+void					print_simple(t_list *flist, t_list *plist);
+void					print_simple_v2(t_list *flist, t_list *plist);
+void					print_long(t_list *flist, t_list *plist);
+
+unsigned int			count_digits(unsigned int n);
 
 #endif

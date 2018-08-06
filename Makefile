@@ -6,7 +6,7 @@
 #    By: wseegers <wseegers@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/30 19:53:02 by wseegers          #+#    #+#              #
-#    Updated: 2018/08/06 16:33:31 by wseegers         ###   ########.fr        #
+#    Updated: 2018/08/06 16:56:58 by wseegers         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ INC = -I libwtcc/include
 LIB = -L libwtcc -lwtcc 
 
 SRC_PATH = src
-ALL_SRC = $(wildcard src/*.c)
+ALL_SRC = count_digits.c exec_ls.c ft_ls.c g_months.c get_file_list.c \
+		  print_col.c print_long.c print_simple.c sort.c to_str.c
 SRC = $(ALL_SRC:src/%=%)
 BIN_PATH = bin
 BIN := $(SRC:%.c=$(BIN_PATH)/%.o)

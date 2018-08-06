@@ -6,7 +6,7 @@
 /*   By: wseegers <wseegers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/30 19:54:15 by wseegers          #+#    #+#             */
-/*   Updated: 2018/08/06 13:59:05 by wseegers         ###   ########.fr       */
+/*   Updated: 2018/08/06 16:25:02 by wseegers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ static int		set_flags(int ac, char *av[])
 			SET_FLAG((g_flags), opt);
 		}
 	}
+	g_flags |= (g_flags & FLAG_NSORT) ? FLAG_ALL : 0;
 	return (i);
 }
 
@@ -78,13 +79,13 @@ int				main(int ac, char *av[])
 	else if (ac - offset == 1)
 		exec_ls(av[offset], print);
 	else
-	{
 		while (offset < ac)
 		{
+			if (av[offset][0] == '-' && offset++)
+				continue ;
 			f_printf("%s:\n", av[offset]);
 			exec_ls(av[offset++], print);
 			f_printf("\n");
 		}
-	}
 	f_exit(0);
 }

@@ -6,7 +6,7 @@
 /*   By: wseegers <wseegers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/06 13:46:41 by wseegers          #+#    #+#             */
-/*   Updated: 2018/08/06 13:47:20 by wseegers         ###   ########.fr       */
+/*   Updated: 2018/08/06 14:39:12 by wseegers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,15 @@ static int	get_term_width(void)
 static int	get_max_len(t_list *flist, t_file_info *fi)
 {
 	int i;
+	int len;
 	int	max_len;
 
 	i = -1;
-	max_len = 0;
+	max_len = 8;
 	while (++i < flist->size)
 	{
 		fi = FLIST_GET(flist, i);
-		max_len = MAX(max_len, f_strlen(fi->file_name) + 1);
+		max_len += ((len = f_strlen(fi->file_name)) >= max_len) ? 8 : 0;
 	}
 	return (max_len);
 }

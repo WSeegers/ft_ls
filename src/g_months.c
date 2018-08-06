@@ -6,13 +6,22 @@
 /*   By: wseegers <wseegers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/03 11:29:45 by wseegers          #+#    #+#             */
-/*   Updated: 2018/08/03 11:29:50 by wseegers         ###   ########.fr       */
+/*   Updated: 2018/08/06 15:17:45 by wseegers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-const char	*g_months[12] =
+const char	*g_months[] =
 {
-	"Jan", "Feb", "Mar", "Apr", "May",
-	"Jun", "Jul", "Aug", "Sep", "Oct",
-	"Nov", "Dec"
+	"Jan",
+	"Feb",
+	"Mar",
+	"Apr",
+	"May",
+	"Jun",
+	"Jul",
+	"Aug",
+	"Sep",
+	"Oct",
+	"Nov",
+	"Dec"
 };

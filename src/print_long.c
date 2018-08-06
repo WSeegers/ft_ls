@@ -6,7 +6,7 @@
 /*   By: wseegers <wseegers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/06 09:11:53 by wseegers          #+#    #+#             */
-/*   Updated: 2018/08/06 13:28:49 by wseegers         ###   ########.fr       */
+/*   Updated: 2018/08/06 16:30:13 by wseegers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,16 @@ static void	print_mode(mode_t mode)
 	(S_IXOTH & mode) ? f_printf("x ") : f_printf("- ");
 }
 
-void		print_date(struct timespec last_mod)
+void		print_time(t_stat s)
 {
-	struct tm *ts;
+	struct tm		*tm_;
+	struct timespec	ts;
 
-	ts = localtime(&last_mod.tv_sec);
-	f_printf("%2d %s %.2d:%.2d ", ts->tm_mday,
-		g_months[ts->tm_mon],
-		ts->tm_hour, ts->tm_min);
+	ts = (g_flags & FLAG_ACCESS) ? s.st_atimespec : s.st_mtimespec;
+	tm_ = localtime(&ts.tv_sec);
+	f_printf("%2d %s %.2d:%.2d ", tm_->tm_mday,
+		g_months[tm_->tm_mon],
+		tm_->tm_hour, tm_->tm_min);
 }
 
 void		print_link(t_list *flist, t_list *plist, t_file_info *fi,
@@ -77,7 +79,7 @@ void		print_link(t_list *flist, t_list *plist, t_file_info *fi,
 	s_list_append(plist, fi->file_name);
 	readlink(get_path(plist), buf, len);
 	f_printf(" -> %s", buf);
-	free(s_list_pop(plist, -1));
+	s_list_pop(plist, -1);
 }
 
 void		print_long(t_list *flist, t_list *plist)
@@ -100,7 +102,7 @@ void		print_long(t_list *flist, t_list *plist)
 		f_printf("%*d %*s  %*s ", colw[0], fi->stats.st_nlink,
 			colw[1], pwd->pw_name, colw[1], grp->gr_name);
 		f_printf("%*d ", colw[3], fi->stats.st_size);
-		print_date(fi->stats.st_mtimespec);
+		print_time(fi->stats);
 		f_printf("%s", fi->file_name);
 		if (S_ISLNK(fi->stats.st_mode))
 			print_link(flist, plist, fi, fi->stats.st_size);

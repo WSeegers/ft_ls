@@ -6,7 +6,7 @@
 /*   By: wseegers <wseegers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/03 06:15:32 by wseegers          #+#    #+#             */
-/*   Updated: 2018/08/06 16:29:34 by wseegers         ###   ########.fr       */
+/*   Updated: 2018/08/06 16:47:16 by wseegers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ls_rec(t_list *flist, t_list *plist,
 		lstat(path, &stats);
 		if (S_ISDIR(stats.st_mode))
 		{
-			f_printf("\n%s\n", path);
+			f_printf("\n%s:\n", path);
 			path = get_path(plist);
 			exec_ls(path, print);
 		}
@@ -41,7 +41,6 @@ void	exec_ls(const char *path, void (*print)(t_list*, t_list*))
 {
 	t_list			plist;
 	t_list			flist;
-	char			*temp;
 
 	s_list_init(&plist, free);
 	s_list_init(&flist, free);

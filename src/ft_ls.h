@@ -6,7 +6,7 @@
 /*   By: wseegers <wseegers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/30 19:54:47 by wseegers          #+#    #+#             */
-/*   Updated: 2018/08/06 16:21:39 by wseegers         ###   ########.fr       */
+/*   Updated: 2018/08/06 16:40:19 by wseegers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ t_flags							g_flags;
 
 const char				*g_months[12];
 
-typedef int				t_col_width[4];
+typedef unsigned int	t_col_width[4];
 
 void					print_simple(t_list *flist, t_list *plist);
 void					print_col(t_list *flist, t_list *plist);

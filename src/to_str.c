@@ -6,18 +6,18 @@
 /*   By: wseegers <wseegers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/03 03:50:53 by wseegers          #+#    #+#             */
-/*   Updated: 2018/08/03 06:57:35 by wseegers         ###   ########.fr       */
+/*   Updated: 2018/08/06 16:31:28 by wseegers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-char	*void_to_str(void *str)
+char		*void_to_str(void *str)
 {
 	return ((char*)str);
 }
 
-const char *get_path(t_list *plist)
+const char	*get_path(t_list *plist)
 {
 	return (s_list_tostr(plist, '/', void_to_str));
 }

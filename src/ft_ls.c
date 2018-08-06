@@ -6,7 +6,7 @@
 /*   By: wseegers <wseegers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/30 19:54:15 by wseegers          #+#    #+#             */
-/*   Updated: 2018/08/06 16:25:02 by wseegers         ###   ########.fr       */
+/*   Updated: 2018/08/06 16:33:55 by wseegers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ t_flags			g_flags = 0;
 
 static void		*get_print_func(void)
 {
-	void	(*print)(t_list, t_list);
-
 	if (g_flags & FLAG_LONG)
 		return (print_long);
 	else if (isatty(1) || g_flags & FLAG_COL)

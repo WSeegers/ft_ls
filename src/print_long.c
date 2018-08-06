@@ -6,7 +6,7 @@
 /*   By: wseegers <wseegers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/06 09:11:53 by wseegers          #+#    #+#             */
-/*   Updated: 2018/08/06 16:30:13 by wseegers         ###   ########.fr       */
+/*   Updated: 2018/08/06 16:45:05 by wseegers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int			prepare_print(t_list *flist, t_col_width colw)
 {
-	int				i;
+	unsigned int	i;
 	int				block_total;
 	t_stat			stats;
 	struct passwd	*pwd;
@@ -70,7 +70,7 @@ void		print_time(t_stat s)
 		tm_->tm_hour, tm_->tm_min);
 }
 
-void		print_link(t_list *flist, t_list *plist, t_file_info *fi,
+void		print_link(t_list *plist, t_file_info *fi,
 																ssize_t len)
 {
 	char buf[len + 1];
@@ -85,7 +85,7 @@ void		print_link(t_list *flist, t_list *plist, t_file_info *fi,
 void		print_long(t_list *flist, t_list *plist)
 {
 	t_file_info		*fi;
-	int				i;
+	unsigned int	i;
 	struct passwd	*pwd;
 	struct group	*grp;
 	t_col_width		colw;
@@ -99,13 +99,13 @@ void		print_long(t_list *flist, t_list *plist)
 		pwd = getpwuid(fi->stats.st_uid);
 		grp = getgrgid(pwd->pw_gid);
 		print_mode(fi->stats.st_mode);
-		f_printf("%*d %*s  %*s ", colw[0], fi->stats.st_nlink,
+		f_printf("%*d %*s %*s ", colw[0], fi->stats.st_nlink,
 			colw[1], pwd->pw_name, colw[1], grp->gr_name);
 		f_printf("%*d ", colw[3], fi->stats.st_size);
 		print_time(fi->stats);
 		f_printf("%s", fi->file_name);
 		if (S_ISLNK(fi->stats.st_mode))
-			print_link(flist, plist, fi, fi->stats.st_size);
+			print_link(plist, fi, fi->stats.st_size);
 		f_printf("\n");
 	}
 }

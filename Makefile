@@ -6,13 +6,13 @@
 #    By: wseegers <wseegers@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/07/30 19:53:02 by wseegers          #+#    #+#              #
-#    Updated: 2018/08/03 09:32:29 by wseegers         ###   ########.fr        #
+#    Updated: 2018/08/06 16:33:31 by wseegers         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = ft_ls
 CC = clang
-#CFLAGS = -Werror -Wall -Wextra 
+CFLAGS = -Werror -Wall -Wextra 
 INC = -I libwtcc/include
 LIB = -L libwtcc -lwtcc 
 

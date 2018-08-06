@@ -6,7 +6,7 @@
 /*   By: wseegers <wseegers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/03 06:11:19 by wseegers          #+#    #+#             */
-/*   Updated: 2018/08/06 16:29:03 by wseegers         ###   ########.fr       */
+/*   Updated: 2018/08/06 16:34:02 by wseegers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ static void	validate_files(t_list *flist, t_list *plist, DIR *dir)
 int			get_file_list(t_list *flist, t_list *plist)
 {
 	DIR			*dir;
-	t_dirent	de;
 
 	if (!(dir = opendir(get_path(plist))))
 	{

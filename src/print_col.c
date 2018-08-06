@@ -6,7 +6,7 @@
 /*   By: wseegers <wseegers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/06 13:46:41 by wseegers          #+#    #+#             */
-/*   Updated: 2018/08/06 14:39:12 by wseegers         ###   ########.fr       */
+/*   Updated: 2018/08/06 16:38:58 by wseegers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,12 @@ static int	get_term_width(void)
 	return (w.ws_col);
 }
 
-static int	get_max_len(t_list *flist, t_file_info *fi)
+static int	get_max_len(t_list *flist)
 {
-	int i;
-	int len;
-	int	max_len;
+	unsigned int	i;
+	int				len;
+	int				max_len;
+	t_file_info		*fi;
 
 	i = -1;
 	max_len = 8;
@@ -45,14 +46,14 @@ void		print_col(t_list *flist, t_list *plist)
 	int			rows;
 
 	(void)plist;
-	max_len = get_max_len(flist, fi);
+	max_len = get_max_len(flist);
 	rows = flist->size / (get_term_width() / max_len) + 1;
 	j = -1;
 	while (++j < rows && (i = -1))
 	{
 		while (1)
 		{
-			if (++i * rows + j >= flist->size)
+			if (++i * rows + j >= (long)flist->size)
 				break ;
 			fi = FLIST_GET(flist, i * rows + j);
 			f_printf("%-*s", max_len, fi->file_name);

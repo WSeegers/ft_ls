@@ -6,7 +6,7 @@
 /*   By: wseegers <wseegers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/03 03:48:05 by wseegers          #+#    #+#             */
-/*   Updated: 2018/08/06 15:11:52 by wseegers         ###   ########.fr       */
+/*   Updated: 2018/08/06 16:41:15 by wseegers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 void		print_simple(t_list *flist, t_list *plist)
 {
-	t_file_info	*fi;
-	int			i;
+	t_file_info		*fi;
+	unsigned int	i;
 
 	(void)plist;
 	i = -1;

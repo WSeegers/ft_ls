@@ -6,7 +6,7 @@
 /*   By: wseegers <wseegers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/30 19:54:47 by wseegers          #+#    #+#             */
-/*   Updated: 2018/08/06 10:18:03 by wseegers         ###   ########.fr       */
+/*   Updated: 2018/08/06 14:08:50 by wseegers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@
 # include <termios.h>
 # include <sys/ioctl.h>
 # include <time.h>
+# include <errno.h>
+# include <string.h>
 # include "f_math.h"
 # include "f_print.h"
 # include "s_list.h"
@@ -41,26 +43,37 @@ typedef	struct			s_file_info
 
 # define FLIST_GET(list, i)	((t_file_info*)s_list_get((list), (i)))
 
-typedef unsigned int	t_flags;
+typedef int						t_flags;
+
+t_flags							g_flags;
 
 # define SHIFT(n)				(1 << n)
+# define SET_FLAG(flags, opt)	(flags |= SHIFT(opt))
 # define FLAGED(flags, flag)	((flags) & flag)
 
-# define FLAG_LIST				(SHIFT(0))
-# define FLAG_REC				(SHIFT(1))
-# define FLAG_ALL				(SHIFT(2))
-# define FLAG_REV				(SHIFT(3))
-# define FLAG_TIME				(SHIFT(4))
+# define FLAGS "artlACR"
+
+# define FLAG_ALL				(SHIFT(0))
+# define FLAG_REV				(SHIFT(1))
+# define FLAG_TIME				(SHIFT(2))
+# define FLAG_LONG				(SHIFT(3))
+# define FLAG_AALL				(SHIFT(4))
+# define FLAG_COL				(SHIFT(5))
+# define FLAG_REC				(SHIFT(6))
 
 const char				*g_months[12];
 
-typedef int				t_col_width[2];
+typedef int				t_col_width[4];
 
-void					ls_rec(int flag, t_list *flist, t_list *plist,
+void					print_simple(t_list *flist, t_list *plist);
+void					print_col(t_list *flist, t_list *plist);
+void					print_long(t_list *flist, t_list *plist);
+
+void					ls_rec(t_list *flist, t_list *plist,
 							void (*print)(t_list*, t_list*));
-void					exec_ls(int flag, const char *path,
+void					exec_ls(const char *path,
 							void (*print)(t_list*, t_list*));
-void					get_file_list(t_list *flist, t_list *plist, int flag);
+int						get_file_list(t_list *flist, t_list *plist);
 
 int						tsort(void *p1, void *p2);
 int						rtsort(void *p1, void *p2);
@@ -69,10 +82,6 @@ int						rsort(void *p1, void *p2);
 
 char					*void_to_str(void *str);
 const char				*get_path(t_list *plist);
-
-void					print_simple(t_list *flist, t_list *plist);
-void					print_simple_v2(t_list *flist, t_list *plist);
-void					print_long(t_list *flist, t_list *plist);
 
 unsigned int			count_digits(unsigned int n);
 

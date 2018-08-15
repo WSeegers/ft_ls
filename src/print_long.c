@@ -6,7 +6,7 @@
 /*   By: wseegers <wseegers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/06 09:11:53 by wseegers          #+#    #+#             */
-/*   Updated: 2018/08/06 16:45:05 by wseegers         ###   ########.fr       */
+/*   Updated: 2018/08/15 10:11:19 by wseegers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,8 @@ void		print_time(t_stat s)
 
 	ts = (g_flags & FLAG_ACCESS) ? s.st_atimespec : s.st_mtimespec;
 	tm_ = localtime(&ts.tv_sec);
-	f_printf("%2d %s %.2d:%.2d ", tm_->tm_mday,
-		g_months[tm_->tm_mon],
+	f_printf("%2d %s %.2d:%.2d ",
+		tm_->tm_mday, g_months[tm_->tm_mon],
 		tm_->tm_hour, tm_->tm_min);
 }
 

@@ -6,7 +6,7 @@
 /*   By: wseegers <wseegers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/30 19:54:47 by wseegers          #+#    #+#             */
-/*   Updated: 2018/08/17 08:18:40 by wseegers         ###   ########.fr       */
+/*   Updated: 2018/08/17 11:16:35 by wseegers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 # include "s_list.h"
 # include "f_cntl.h"
 # include "f_string.h"
+# include "f_memory.h"
 
 typedef struct dirent	*t_dirent;
 typedef struct stat		t_stat;
@@ -86,7 +87,7 @@ int						sort(void *p1, void *p2);
 int						rsort(void *p1, void *p2);
 
 char					*void_to_str(void *str);
-const char				*get_path(t_list *plist);
+char					*get_path(t_list *plist);
 
 unsigned int			count_digits(unsigned int n);
 

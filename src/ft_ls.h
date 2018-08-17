@@ -6,7 +6,7 @@
 /*   By: wseegers <wseegers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/30 19:54:47 by wseegers          #+#    #+#             */
-/*   Updated: 2018/08/06 16:40:19 by wseegers         ###   ########.fr       */
+/*   Updated: 2018/08/17 08:18:40 by wseegers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,18 +51,20 @@ t_flags							g_flags;
 # define SET_FLAG(flags, opt)	(flags |= SHIFT(opt))
 # define FLAGED(flags, flag)	((flags) & flag)
 
-# define FLAGS "afrtluACLR"
+# define FLAGS "afglortuACLR"
 
 # define FLAG_ALL				(SHIFT(0))
 # define FLAG_NSORT				(SHIFT(1))
-# define FLAG_REV				(SHIFT(2))
-# define FLAG_TIME				(SHIFT(3))
-# define FLAG_LONG				(SHIFT(4))
-# define FLAG_ACCESS			(SHIFT(5))
-# define FLAG_AALL				(SHIFT(6))
-# define FLAG_COL				(SHIFT(7))
-# define FLAG_LINK				(SHIFT(8))
-# define FLAG_REC				(SHIFT(9))
+# define FLAG_NOOWNER			(SHIFT(2))
+# define FLAG_LONG				(SHIFT(3))
+# define FLAG_NOGRP				(SHIFT(4))
+# define FLAG_REV				(SHIFT(5))
+# define FLAG_TIME				(SHIFT(6))
+# define FLAG_ACCESS			(SHIFT(7))
+# define FLAG_AALL				(SHIFT(8))
+# define FLAG_COL				(SHIFT(9))
+# define FLAG_LINK				(SHIFT(10))
+# define FLAG_REC				(SHIFT(11))
 
 const char				*g_months[12];
 

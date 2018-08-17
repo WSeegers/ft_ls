@@ -6,7 +6,7 @@
 /*   By: wseegers <wseegers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/06 13:46:41 by wseegers          #+#    #+#             */
-/*   Updated: 2018/08/06 16:38:58 by wseegers         ###   ########.fr       */
+/*   Updated: 2018/08/17 07:57:26 by wseegers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,13 @@ static int	get_max_len(t_list *flist)
 	t_file_info		*fi;
 
 	i = -1;
-	max_len = 8;
+	max_len = 2;
 	while (++i < flist->size)
 	{
 		fi = FLIST_GET(flist, i);
-		max_len += ((len = f_strlen(fi->file_name)) >= max_len) ? 8 : 0;
+		len = f_strlen(fi->file_name);
+		while (max_len < len)
+			max_len *= 2;
 	}
 	return (max_len);
 }

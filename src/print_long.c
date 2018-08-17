@@ -6,7 +6,7 @@
 /*   By: wseegers <wseegers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/06 09:11:53 by wseegers          #+#    #+#             */
-/*   Updated: 2018/08/15 10:11:19 by wseegers         ###   ########.fr       */
+/*   Updated: 2018/08/17 08:22:49 by wseegers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,7 @@ void		print_long(t_list *flist, t_list *plist)
 	struct group	*grp;
 	t_col_width		colw;
 
-	i = -1;
-	f_bzero(colw, sizeof(t_col_width));
+	((i = -1)) ? f_bzero(colw, sizeof(t_col_width)) : 0;
 	f_printf("total %d\n", prepare_print(flist, colw));
 	while (++i < flist->size)
 	{
@@ -99,8 +98,9 @@ void		print_long(t_list *flist, t_list *plist)
 		pwd = getpwuid(fi->stats.st_uid);
 		grp = getgrgid(pwd->pw_gid);
 		print_mode(fi->stats.st_mode);
-		f_printf("%*d %*s %*s ", colw[0], fi->stats.st_nlink,
-			colw[1], pwd->pw_name, colw[1], grp->gr_name);
+		f_printf("%*d ", colw[0], fi->stats.st_nlink);
+		(g_flags & FLAG_NOOWNER) ? 0 : f_printf("%*s ", colw[1], pwd->pw_name);
+		(g_flags & FLAG_NOGRP) ? 0 : f_printf("%*s ", colw[2], grp->gr_name);
 		f_printf("%*d ", colw[3], fi->stats.st_size);
 		print_time(fi->stats);
 		f_printf("%s", fi->file_name);

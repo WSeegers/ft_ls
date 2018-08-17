@@ -6,7 +6,7 @@
 /*   By: wseegers <wseegers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/30 19:54:15 by wseegers          #+#    #+#             */
-/*   Updated: 2018/08/06 16:33:55 by wseegers         ###   ########.fr       */
+/*   Updated: 2018/08/17 08:19:23 by wseegers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ static int		set_flags(int ac, char *av[])
 		}
 	}
 	g_flags |= (g_flags & FLAG_NSORT) ? FLAG_ALL : 0;
+	g_flags |= (g_flags & FLAG_NOOWNER) ? FLAG_LONG : 0;
+	g_flags |= (g_flags & FLAG_NOGRP) ? FLAG_LONG : 0;
 	return (i);
 }
 

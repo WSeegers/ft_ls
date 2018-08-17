@@ -6,22 +6,13 @@
 /*   By: wseegers <wseegers@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/03 06:15:32 by wseegers          #+#    #+#             */
-/*   Updated: 2018/08/17 11:16:15 by wseegers         ###   ########.fr       */
+/*   Updated: 2018/08/17 11:28:21 by wseegers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-static void	clean_fi(void *file_info)
-{
-	t_file_info *fi;
-
-	fi = (t_file_info*)file_info;
-	f_strdel(&fi->file_name);
-	f_memdel(&file_info);
-}
-
-void	ls_rec(t_list *flist, t_list *plist,
+void		ls_rec(t_list *flist, t_list *plist,
 												void (*print)(t_list*, t_list*))
 {
 	t_file_info	*fi;
@@ -46,7 +37,16 @@ void	ls_rec(t_list *flist, t_list *plist,
 	}
 }
 
-void	exec_ls(const char *path, void (*print)(t_list*, t_list*))
+static void	clean_fi(void *file_info)
+{
+	t_file_info *fi;
+
+	fi = (t_file_info*)file_info;
+	f_strdel(&fi->file_name);
+	f_memdel(&file_info);
+}
+
+void		exec_ls(const char *path, void (*print)(t_list*, t_list*))
 {
 	t_list			plist;
 	t_list			flist;
